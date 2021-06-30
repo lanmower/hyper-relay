@@ -13,7 +13,6 @@ hyper-tcp-relay-client <topicname> <portnumber>
 
 # server
 ```javascript
-
 const express = require("express")();
 express.get('/',(req,res)=>{return 'Hello World'})
 express.listen(3001);
@@ -25,7 +24,6 @@ console.log(pubKey);
 # client (server pubkey as first command line argument)
 
 ```javascript
-  
 const tunnel = require('./node.js')()
 const client = tunnel.client(1080, Buffer.from(process.argv[process.argv.length-1], 'hex'));
 ````
