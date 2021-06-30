@@ -15,9 +15,8 @@ module.exports = () => {
         
         var local = new net.Socket();
         
-        local.connect(port, 'localhost', function () {
-          pump(socket, local, socket, () => { local.end(); socket.end();});
-        });
+        local.connect(port, 'localhost');
+        pump(socket, local, socket);
       });
       server.listen(keyPair);
       return keyPair.publicKey;
@@ -27,9 +26,7 @@ module.exports = () => {
       var server = net.createServer(function (servsock) {
         const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
         const socket = node.connect(keyPair.publicKey);
-        socket.on('open', () => {
-          pump(servsock, socket, servsock, () => { servsock.end(); socket.end();})
-        })
+        pump(servsock, socket, servsock)
       });
       server.listen(port, '127.0.0.1');
     }
