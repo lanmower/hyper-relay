@@ -3,6 +3,14 @@ Relay tcp listeners over hyperswarm
 # Installation
 npm install --save hyper-tcp-relay
 
+# remotely
+hyper-tcp-relay-server <topicname>
+
+# locally
+hyper-tcp-relay-client <topicname> <portnumber>
+
+# PROGRAMMATIC USE
+
 # server
 const express = require("express")();
 express.get('/',(req,res)=>{return 'Hello World'})

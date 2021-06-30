@@ -23,11 +23,10 @@ module.exports = () => {
       return keyPair.publicKey;
     },
     /* reflect a remote port locally */
-    client: (port = 1080, publicKey) => {
+    client: (port = 1080, key) => {
       var server = net.createServer(function (servsock) {
-        
-        const socket = node.connect(publicKey);
-        
+        const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
+        const socket = node.connect(keyPair.publicKey);
         socket.on('open', () => {
           pump(servsock, socket, servsock, () => { servsock.end(); socket.end();})
         })

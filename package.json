@@ -13,6 +13,10 @@
     "express": "^3.18.0",
     "pump": "^3.0.0"
   },
+  "bin": {
+    "hyper-tcp-relay-client": "bin/client.js",
+    "hyper-tcp-relay-server": "bin/server.js"
+  },
   "engines": {
     "node": "12.x"
   },
