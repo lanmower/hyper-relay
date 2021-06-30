@@ -12,9 +12,7 @@ module.exports = () => {
       const server = node.createServer();
       
       server.on("connection", function (socket) {
-        
         var local = new net.Socket();
-        
         local.connect(port, 'localhost');
         pump(socket, local, socket);
       });
@@ -26,7 +24,7 @@ module.exports = () => {
       var server = net.createServer(function (servsock) {
         const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
         const socket = node.connect(keyPair.publicKey);
-        pump(servsock, socket, servsock)
+        pump(servsock, socket, servsock);
       });
       server.listen(port, '127.0.0.1');
     }
