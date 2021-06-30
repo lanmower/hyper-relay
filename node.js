@@ -10,7 +10,6 @@ module.exports = () => {
     serve: (key = 'glitch', port=3001) => {
       const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
       const server = node.createServer();
-      
       server.on("connection", function (socket) {
         var local = net.connect(port, 'localhost');
         pump(socket, local, socket);
