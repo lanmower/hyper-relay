@@ -23,6 +23,6 @@ console.log(pubKey);
 # client (server pubkey as first command line argument)
 
 ```javascript
-const tunnel = require('./node.js')()
+const tunnel = require('hyper-tcp-relay')()
 const client = tunnel.client(1080, Buffer.from(process.argv[process.argv.length-1], 'hex'));
 ````
