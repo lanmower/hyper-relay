@@ -1,4 +1,4 @@
-Relay tcp listeners over hyperswarm
+This package relays tcp listeners over hyperswarm, using the createServer/connect noise encrypted channel.
 
 # Installation
 npm install --save hyper-tcp-relay
@@ -26,5 +26,3 @@ console.log(pubKey);
 const tunnel = require('./node.js')()
 const client = tunnel.client(1080, Buffer.from(process.argv[process.argv.length-1], 'hex'));
 ````
-  
-The tunnel is noise encrypted.
