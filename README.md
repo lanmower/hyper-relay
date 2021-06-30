@@ -14,7 +14,7 @@ hyper-tcp-relay-client <topicname> <portnumber>
 # server
 ```javascript
 const express = require("express")();
-express.get('/',(req,res)=>{return 'Hello World'})
+express.get('/',(req,res)=>{res.send('Hello World')})
 express.listen(3001);
 const pubKey = require('hyper-tcp-relay')().serve('topic', 3001).toString('hex')
 console.log(pubKey);
