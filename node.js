@@ -12,8 +12,7 @@ module.exports = () => {
       const server = node.createServer();
       
       server.on("connection", function (socket) {
-        var local = new net.Socket();
-        local.connect(port, 'localhost');
+        var local = net.connect(port, 'localhost');
         pump(socket, local, socket);
       });
       server.listen(keyPair);
