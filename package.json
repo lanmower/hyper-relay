@@ -1,0 +1,32 @@
+{
+  "name": "hyper-tcp-relay",
+  "version": "0.0.1",
+  "description": "TCP relay for hyperswarm (tunnel)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "socksv5": "^0.0.6",
+    "@hyperswarm/dht": "next",
+    "hypercore-crypto": "^2.3.0",
+    "express": "^3.18.0",
+    "pump": "^3.0.0"
+  },
+  "bin": {
+    "hyper-tcp-relay-client": "bin/client.js",
+    "hyper-tcp-relay-server": "bin/server.js"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/glitch-hello-node"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
