@@ -6,5 +6,5 @@ if(process.argv.length == 4) {
   const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
   const pubKey = keyPair.publicKey;
   tunnel.client(pubKey,port);
-} else console.log("usage: hyper-relay-client <key> <port>");
+} else console.log("usage: hyper-relay-client <port> <key>");
 

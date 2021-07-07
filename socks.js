@@ -13,5 +13,6 @@ if(process.argv.length == 4) {
   const pubKey = require('./relay.js')().serve(key, port);
   console.log({pubKey:pubKey.toString('hex')});
   process.on('uncaughtException', (err) => {})
-} else console.log("usage: hyper-socks-relay-client <key> <port>");
+} else console.log("usage: hyper-socks-relay-client <port> <key>");
 
+ 
