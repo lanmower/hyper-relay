@@ -4,7 +4,7 @@
   "description": "TCP relay for hyperswarm (tunnel)",
   "main": "main.js",
   "scripts": {
-    "start": "node stdclient.js glitch"
+    "start": "node stdserver.js glitch"
   },
   "dependencies": {
     "socksv5": "^0.0.6",

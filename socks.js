@@ -2,7 +2,7 @@ var socks = require('socksv5');
 
 if(process.argv.length == 4) {
   const key = process.argv[process.argv.length-1];
-  const port = process.argv[process.argv.length-2];
+  const port = parseInt(process.argv[process.argv.length-2]);
   var srv = socks.createServer(function(info, accept, deny) {
     accept();
   });
