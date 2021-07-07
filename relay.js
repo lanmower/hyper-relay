@@ -18,10 +18,9 @@ module.exports = () => {
       return keyPair.publicKey;
     },
     /* reflect a remote port locally */
-    client: (key, port, std) => {
+    client: (publicKey, port, std) => {
       var server = net.createServer(function (servsock) {
-        const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
-        const socket = node.connect(keyPair.publicKey);
+        const socket = node.connect(publicKey);
         if(std) pump(process.stdin, socket, process.stdout);
         else {
           socket.on('open', () => {
@@ -30,6 +29,7 @@ module.exports = () => {
         }
       });
       server.listen(port, '127.0.0.1');
+      return publicKey;
     }
   }
 }

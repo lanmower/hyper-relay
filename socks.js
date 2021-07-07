@@ -1,13 +1,17 @@
 var socks = require('socksv5');
 
-var srv = socks.createServer(function(info, accept, deny) {
-  accept();
-});
-srv.listen(1080, 'localhost', function() {
-  console.log('SOCKS server listening on port 1080');
-});
- 
-srv.useAuth(socks.auth.None());
-const pubKey = require('./relay.js')().serve(Buffer.from(process.argv[process.argv.length-1]), 1080).toString('hex')
-console.log(pubKey);
-process.on('uncaughtException', (err) => {})
+if(process.argv.length == 4) {
+  const key = process.argv[process.argv.length-1];
+  const port = process.argv[process.argv.length-2];
+  var srv = socks.createServer(function(info, accept, deny) {
+    accept();
+  });
+  srv.listen(process.argv[process.argv.length-2], 'localhost', function() {
+    console.log('SOCKS server listening on port '+port);
+  });
+  srv.useAuth(socks.auth.None());
+  const pubKey = require('./relay.js')().serve(key, port);
+  console.log({pubKey:pubKey.toString('hex')});
+  process.on('uncaughtException', (err) => {})
+} else console.log("usage: hyper-socks-relay-client <key> <port>");
+
