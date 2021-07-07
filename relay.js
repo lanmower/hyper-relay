@@ -3,6 +3,7 @@ const crypto = require("hypercore-crypto");
 var net = require("net");
 var pump = require("pump");
 const node = new DHT({});
+
 module.exports = () => {
   return {
     /* share a local port remotely */
@@ -21,13 +22,14 @@ module.exports = () => {
     },
     /* reflect a remote port locally */
     client: (publicKey, port, stdio) => {
-      const socket = node.connect(publicKey);
       if (stdio) {
+        const socket = node.connect(publicKey);
         pump(process.stdin, socket, process.stdout);
       } else {
         var server = net.createServer(function(servsock) {
+          const socket = node.connect(publicKey);
           pump(servsock, socket, servsock);
-        });
+        }); 
         server.listen(port, "127.0.0.1");
       }
       return publicKey;
