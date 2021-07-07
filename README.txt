@@ -11,9 +11,11 @@ npm install --save hyper-tcp-relay
 ## TCP Relay
 
 ### remotely
-hyper-tcp-relay-server <topicname>
+### relay from a hyper-relay client to a local server
+hyper-tcp-relay-server <topicname> <portnumber>
 
 ### locally
+### relay from a local server to a hyper-relay server
 hyper-tcp-relay-client <topicname> <portnumber>
 
 ## STDIO Relay
