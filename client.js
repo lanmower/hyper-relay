@@ -1,3 +1,3 @@
-const tunnel = require('./node.js')()
-const client = tunnel.client(1080, Buffer.from(process.argv[process.argv.length-1], 'hex'));
-process.on('uncaughtException', (err) => {})
+const tunnel = require('./relay.js')()
+const pubKey = tunnel.client(process.argv[process.argv.length-1], 12800);
+console.log(pubKey.toString('hex'));
