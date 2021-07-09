@@ -6,7 +6,7 @@ a public key instead of a topic, to make your
 relayed process publicly available.
 
 # Installation
-npm install --save hyper-tcp-relay
+npm install --save hyper-tcp-relay -g
 
 ## TCP Relay
 
