@@ -13,11 +13,11 @@
     "pump": "^3.0.0"
   },
   "bin": {
-    "hyper-tcp-relay-client": "client.js",
-    "hyper-tcp-relay-server": "server.js",
-    "hyper-socks-relay-server": "socks.js",
-    "hyper-relay-client": "stdclient.js",
-    "hyper-relay-server": "stdserver.js"
+    "hyper-tcp-relay-client": "node client.js",
+    "hyper-tcp-relay-server": "node server.js",
+    "hyper-socks-relay-server": "node socks.js",
+    "hyper-relay-client": "node stdclient.js",
+    "hyper-relay-server": "node stdserver.js"
   },
   "engines": {
     "node": "12.x"
