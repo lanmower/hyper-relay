@@ -7,13 +7,13 @@ const node = new DHT({});
 module.exports = () => {
   return {
     /* share a local port remotely */
-    serve: (key, port, stdio) => {
+    serve: (key, port, stdio, addr="localhost") => {
       const keyPair = Buffer.from(key, 'hex');
       const server = node.createServer();
       server.on("connection", function(socket) {
         if (stdio) pump(process.stdin, socket, process.stdout);
         else {
-          var local = net.connect(port, "localhost");
+          var local = net.connect(port, addr);
           pump(socket, local, socket);
         }
       });
