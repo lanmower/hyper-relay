@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const crypto = require('hypercore-crypto')
 if(process.argv.length == 3) {
   const key = process.argv[process.argv.length-1];

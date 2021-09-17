@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 if(process.argv.length == 5) {
   const port = parseInt(process.argv[process.argv.length-3]);
   const addr = parseInt(process.argv[process.argv.length-2]);
