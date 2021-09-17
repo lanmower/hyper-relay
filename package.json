@@ -1,23 +1,24 @@
 {
   "name": "hyper-relay",
-  "version": "0.0.2",
+  "version": "0.2.12",
   "description": "TCP relay for hyperswarm (tunnel)",
   "main": "main.js",
   "scripts": {
     "start": "node socks.js 1080 glitch"
   },
   "dependencies": {
-    "socksv5": "^0.0.6",
     "@hyperswarm/dht": "next",
+    "hi-base32": "^0.5.1",
     "hypercore-crypto": "^2.3.0",
-    "pump": "^3.0.0"
+    "pump": "^3.0.0",
+    "socksv5": "^0.0.6"
   },
   "bin": {
-    "hyper-tcp-relay-client": "node client.js",
-    "hyper-tcp-relay-server": "node server.js",
-    "hyper-socks-relay-server": "node socks.js",
-    "hyper-relay-client": "node stdclient.js",
-    "hyper-relay-server": "node stdserver.js"
+    "hyper-tcp-relay-client": "client.js",
+    "hyper-tcp-relay-server": "server.js",
+    "hyper-socks-relay-server": "socks.js",
+    "hyper-relay-client": "stdclient.js",
+    "hyper-relay-server": "stdserver.js"
   },
   "engines": {
     "node": "12.x"
