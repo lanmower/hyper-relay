@@ -8,7 +8,7 @@ module.exports = () => {
   return {
     /* share a local port remotely */
     serve: (key, port, stdio) => {
-      const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
+      const keyPair = Buffer.from(key, 'hex');
       const server = node.createServer();
       server.on("connection", function(socket) {
         if (stdio) pump(process.stdin, socket, process.stdout);
@@ -21,7 +21,8 @@ module.exports = () => {
       return keyPair.publicKey;
     },
     /* reflect a remote port locally */
-    client: (publicKey, port, stdio) => {
+    client: (hexPublicKey, port, stdio) => {
+      const publicKey = Buffer.from(hexPublicKey, 'hex');
       if (stdio) {
         const socket = node.connect(publicKey);
         pump(process.stdin, socket, process.stdout);
