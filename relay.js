@@ -21,7 +21,7 @@ module.exports = () => {
       return keyPair.publicKey;
     },
     /* reflect a remote port locally */
-    client: (hexPublicKey, port, stdio) => {
+    client: (hexPublicKey, port, stdio, addr="localhost") => {
       const publicKey = Buffer.from(hexPublicKey, 'hex');
       if (stdio) {
         const socket = node.connect(publicKey);
@@ -31,7 +31,7 @@ module.exports = () => {
           const socket = node.connect(publicKey);
           pump(servsock, socket, servsock);
         }); 
-        server.listen(port, "127.0.0.1");
+        server.listen(port, addr);
       }
       return publicKey;
     }
