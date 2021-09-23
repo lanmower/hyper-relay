@@ -8,13 +8,30 @@ module.exports = () => {
   return {
     /* share a local port remotely */
     serve: (key, port, stdio) => {
-      const keyPair = Buffer.from(key, 'hex');
+      const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
       const server = node.createServer();
       server.on("connection", function(socket) {
         if (stdio) pump(process.stdin, socket, process.stdout);
         else {
           var local = net.connect(port, "localhost");
-          pump(socket, local, socket);
+          let open = { local: true, remote: true };
+          local.on('data', (d) => { socket.write(d) });
+          socket.on('data', (d) => { local.write(d) });
+  
+          const remoteend = () => {
+              if (open.remote) socket.end();
+              open.remote = false;
+          }
+          const localend = () => {
+              if (open.local) local.end();
+              open.local = false;
+          }
+          local.on('error', remoteend)
+          local.on('finish', remoteend)
+          local.on('end', remoteend)
+          socket.on('finish', localend)
+          socket.on('error', localend)
+          socket.on('end', localend)
         }
       });
       server.listen(keyPair);
@@ -27,9 +44,26 @@ module.exports = () => {
         const socket = node.connect(publicKey);
         pump(process.stdin, socket, process.stdout);
       } else {
-        var server = net.createServer(function(servsock) {
+        var server = net.createServer(function(local) {
           const socket = node.connect(publicKey);
-          pump(servsock, socket, servsock);
+          let open = { local:true, remote:true };
+          local.on('data', (d)=>{socket.write(d)});
+          socket.on('data', (d)=>{local.write(d)});
+        
+          const remoteend = () => {
+            if(open.remote) socket.end();
+            open.remote = false;
+          }
+          const localend = () => {
+            if(open.local) local.end();
+            open.local = false;
+          }
+          local.on('error', remoteend)
+          local.on('finish', remoteend)
+          local.on('end', remoteend)
+          socket.on('finish', localend)
+          socket.on('error', localend)
+          socket.on('end', localend)
         }); 
         server.listen(port, "127.0.0.1");
       }

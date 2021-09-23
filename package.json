@@ -1,6 +1,6 @@
 {
   "name": "hyper-relay",
-  "version": "0.2.2",
+  "version": "0.2.15",
   "description": "TCP relay for hyperswarm (tunnel)",
   "main": "main.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@hyperswarm/dht": "next",
-    "hyper-relay": "^0.2.2",
+    "hi-base32": "^0.5.1",
     "hypercore-crypto": "^2.3.0",
     "pump": "^3.0.0",
     "socksv5": "^0.0.6"
