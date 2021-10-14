@@ -1,14 +1,13 @@
 {
   "name": "hyper-relay",
-  "version": "0.2.15",
+  "version": "0.0.6",
   "description": "TCP relay for hyperswarm (tunnel)",
   "main": "main.js",
   "scripts": {
     "start": "node socks.js 1080 glitch"
   },
   "dependencies": {
-    "@hyperswarm/dht": "next",
-    "hi-base32": "^0.5.1",
+    "@hyperswarm/dht": "github:hyperswarm/dht#rc7",
     "hypercore-crypto": "^2.3.0",
     "pump": "^3.0.0",
     "socksv5": "^0.0.6"
