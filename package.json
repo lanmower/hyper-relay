@@ -1,6 +1,6 @@
 {
   "name": "hyper-relay",
-  "version": "0.0.6",
+  "version": "0.2.18",
   "description": "TCP relay for hyperswarm (tunnel)",
   "main": "main.js",
   "scripts": {
