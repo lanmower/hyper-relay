@@ -7,7 +7,7 @@
     "start": "node socks.js 1080 glitch"
   },
   "dependencies": {
-    "@hyperswarm/dht": "github:hyperswarm/dht#rc7",
+    "hyperswarm/dht": "latest",
     "hypercore-crypto": "^2.3.0",
     "pump": "^3.0.0",
     "socksv5": "^0.0.6"
