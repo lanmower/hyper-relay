@@ -1,23 +1,66 @@
 {
-  "name": "hyper-relay",
-  "version": "1.0.35",
-  "description": "Hyperswarm IPC Library",
-  "main": "index.js",
-  "scripts": {
-    "start": "node example/server.js"
+  "_from": "hyper-relay",
+  "_id": "hyper-relay@0.2.24",
+  "_inBundle": false,
+  "_integrity": "sha512-lNZ+z8Ufnt6Talg0Ap8n+ZiPpQATd+N1/IgsIVszqoTc5QXftcRemWoQyVaWwykoIQKSLplIAvZYBN7BzZr7gQ==",
+  "_location": "/hyper-relay",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "hyper-relay",
+    "name": "hyper-relay",
+    "escapedName": "hyper-relay",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
-  "author": "lanmower",
-  "license": "MIT",
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/hyper-relay/-/hyper-relay-0.2.24.tgz",
+  "_shasum": "749e85e8f7280d4539865d245ef91618a26a0c7c",
+  "_spec": "hyper-relay",
+  "_where": "C:\\app\\dev\\hyper-relay",
+  "bin": {
+    "hyper-tcp-relay-client": "client.js",
+    "hyper-tcp-relay-server": "server.js",
+    "hyper-socks-relay-server": "socks.js",
+    "hyper-relay-client": "stdclient.js",
+    "hyper-relay-server": "stdserver.js"
+  },
+  "bugs": {
+    "url": "https://github.com/lanmower/hyper-relay/issues"
+  },
+  "bundleDependencies": false,
   "dependencies": {
     "@hyperswarm/dht": "next",
     "hi-base32": "^0.5.1",
-    "hypercore-crypto": "^3.1.0",
+    "hypercore-crypto": "^2.3.0",
     "pump": "^3.0.0",
-    "socksv5": "0.0.6",
-    "ssh2": "^1.5.0"
+    "socksv5": "^0.0.6"
   },
+  "deprecated": false,
+  "description": "TCP relay for hyperswarm (tunnel)",
+  "engines": {
+    "node": "12.x"
+  },
+  "homepage": "https://github.com/lanmower/hyper-relay#readme",
+  "keywords": [
+    "node",
+    "hyperswarm",
+    "tunnel",
+    "tcp",
+    "relay"
+  ],
+  "license": "MIT",
+  "main": "main.js",
+  "name": "hyper-relay",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/lanmower/hyper-ipc.git"
-  }
+    "url": "git+https://github.com/lanmower/hyper-relay.git"
+  },
+  "scripts": {
+    "start": "node socks.js 1080 glitch"
+  },
+  "version": "0.2.24"
 }
