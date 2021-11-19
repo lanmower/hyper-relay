@@ -1,27 +1,19 @@
 {
-  "_from": "hyper-relay",
-  "_id": "hyper-relay@0.2.24",
-  "_inBundle": false,
-  "_integrity": "sha512-lNZ+z8Ufnt6Talg0Ap8n+ZiPpQATd+N1/IgsIVszqoTc5QXftcRemWoQyVaWwykoIQKSLplIAvZYBN7BzZr7gQ==",
-  "_location": "/hyper-relay",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "hyper-relay",
-    "name": "hyper-relay",
-    "escapedName": "hyper-relay",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
+  "name": "hyper-relay",
+  "version": "0.2.24",
+  "description": "TCP relay for hyperswarm (tunnel)",
+  "main": "main.js",
+  "scripts": {
+    "start": "node socks.js 1080 glitch"
   },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "https://registry.npmjs.org/hyper-relay/-/hyper-relay-0.2.24.tgz",
-  "_shasum": "749e85e8f7280d4539865d245ef91618a26a0c7c",
-  "_spec": "hyper-relay",
-  "_where": "C:\\app\\dev\\hyper-relay",
+  "dependencies": {
+    "@hyperswarm/dht": "next",
+    "hi-base32": "^0.5.1",
+    "hypercore-crypto": "^2.3.0",
+    "pump": "^3.0.0",
+    "socksv5": "^0.0.6",
+    "ssh2": "^1.5.0"
+  },
   "bin": {
     "hyper-tcp-relay-client": "client.js",
     "hyper-tcp-relay-server": "server.js",
@@ -33,15 +25,7 @@
     "url": "https://github.com/lanmower/hyper-relay/issues"
   },
   "bundleDependencies": false,
-  "dependencies": {
-    "@hyperswarm/dht": "next",
-    "hi-base32": "^0.5.1",
-    "hypercore-crypto": "^2.3.0",
-    "pump": "^3.0.0",
-    "socksv5": "^0.0.6"
-  },
   "deprecated": false,
-  "description": "TCP relay for hyperswarm (tunnel)",
   "engines": {
     "node": "12.x"
   },
@@ -54,13 +38,7 @@
     "relay"
   ],
   "license": "MIT",
-  "main": "main.js",
-  "name": "hyper-relay",
   "repository": {
     "url": "git+https://github.com/lanmower/hyper-relay.git"
-  },
-  "scripts": {
-    "start": "node socks.js 1080 glitch"
-  },
-  "version": "0.2.24"
+  }
 }
