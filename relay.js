@@ -10,29 +10,33 @@ module.exports = () => {
     serve: (key, port, stdio) => {
       const keyPair = crypto.keyPair(crypto.data(Buffer.from(key)));
       const server = node.createServer();
-      server.on("connection", function(socket) {
-        if (stdio) pump(process.stdin, socket, process.stdout);
-        else {
-          var local = net.connect(port, "localhost");
-          let open = { local: true, remote: true };
-          local.on('data', (d) => { socket.write(d) });
-          socket.on('data', (d) => { local.write(d) });
-  
-          const remoteend = () => {
-              if (open.remote) socket.end();
-              open.remote = false;
-          }
-          const localend = () => {
-              if (open.local) local.end();
-              open.local = false;
-          }
-          local.on('error', remoteend)
-          local.on('finish', remoteend)
-          local.on('end', remoteend)
-          socket.on('finish', localend)
-          socket.on('error', localend)
-          socket.on('end', localend)
+      server.on("connection", function(servsock) {
+        console.log('connecting local '+port)
+        //const socket = node.connect(keyPair.publicKey);
+        var socket = net.connect(port, "localhost");
+        socket.on('error', console.error);
+        const local = servsock;
+        let open = { local:true, remote:true };
+        local.on('data', (d)=>{socket.write(d)});
+        socket.on('data', (d)=>{local.write(d)});
+      
+        const remoteend = (type) => {
+          console.log('local has ended, ending remote', type)
+          if(open.remote) socket.end();
+          open.remote = false;
         }
+        const localend = (type) => {
+          console.log('remote has ended, ending local', type)
+          if(open.local) local.end();
+          open.local = false;
+        }
+        local.on('error', remoteend)
+        local.on('finish', remoteend)
+        local.on('end', remoteend)
+        socket.on('finish', localend)
+        socket.on('error', localend)
+        socket.on('end', localend)
+          
       });
       server.listen(keyPair);
       return keyPair.publicKey;
