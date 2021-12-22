@@ -1,6 +1,6 @@
 {
   "name": "hyper-relay",
-  "version": "0.2.15",
+  "version": "0.2.31",
   "description": "TCP relay for hyperswarm (tunnel)",
   "main": "main.js",
   "scripts": {
@@ -14,8 +14,8 @@
     "socksv5": "^0.0.6"
   },
   "bin": {
-    "hyper-tcp-relay-client": "client.js",
     "hyper-tcp-relay-server": "server.js",
+    "hyper-tcp-relay-client": "client.js",
     "hyper-socks-relay-server": "socks.js",
     "hyper-relay-client": "stdclient.js",
     "hyper-relay-server": "stdserver.js"
