@@ -11,7 +11,8 @@
     "hi-base32": "^0.5.1",
     "hypercore-crypto": "^2.3.0",
     "pump": "^3.0.0",
-    "socksv5": "^0.0.6"
+    "socksv5": "^0.0.6",
+    "ssh2": "^1.5.0"
   },
   "bin": {
     "hyper-tcp-relay-server": "server.js",
@@ -20,18 +21,24 @@
     "hyper-relay-client": "stdclient.js",
     "hyper-relay-server": "stdserver.js"
   },
+  "bugs": {
+    "url": "https://github.com/lanmower/hyper-relay/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "engines": {
     "node": "12.x"
   },
-  "repository": {
-    "url": "https://github.com/lanmower/hyper-relay"
-  },
-  "license": "MIT",
+  "homepage": "https://github.com/lanmower/hyper-relay#readme",
   "keywords": [
     "node",
     "hyperswarm",
     "tunnel",
     "tcp",
     "relay"
-  ]
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/lanmower/hyper-relay.git"
+  }
 }
