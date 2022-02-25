@@ -11,15 +11,11 @@
     "hi-base32": "^0.5.1",
     "hypercore-crypto": "^2.3.0",
     "pump": "^3.0.0",
-    "socksv5": "^0.0.6",
     "ssh2": "^1.5.0"
   },
   "bin": {
     "hyper-tcp-relay-server": "server.js",
-    "hyper-tcp-relay-client": "client.js",
-    "hyper-socks-relay-server": "socks.js",
-    "hyper-relay-client": "stdclient.js",
-    "hyper-relay-server": "stdserver.js"
+    "hyper-tcp-relay-client": "client.js"
   },
   "bugs": {
     "url": "https://github.com/lanmower/hyper-relay/issues"
