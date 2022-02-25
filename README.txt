@@ -18,14 +18,6 @@ hyper-tcp-relay-server <topicname> <portnumber>
 ### relay from a local server to a hyper-relay server
 hyper-tcp-relay-client <topicname> <portnumber>
 
-## STDIO Relay
-
-### remotely
-hyper-relay-server <topicname>
-
-### locally
-hyper-relay-client <topicname>
-
 # PROGRAMMATIC USE
 
 You can check out the use of the relay in the socks example socks.js as a programmatic forwarder for a local server, this same process can do reverse http servers, sip phone calls, or anything else.
